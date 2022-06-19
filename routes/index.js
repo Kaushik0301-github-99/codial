@@ -5,5 +5,6 @@ const router = express.Router();
 const homeController = require('../controller/home_controller');
 console.log('this route file has been called')
 router.get('/',homeController.home);
+router.use('/user',require('./user'));
 
 module.exports = router;
