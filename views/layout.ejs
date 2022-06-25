@@ -1,0 +1,16 @@
+<!-- as that is an layout so that will be the only one that we are using to laying out the page  -->
+
+<!-- this ejs file name layout is case sensitive so we will have to declare the file name as layout -->
+<html>
+    <head>
+   <title><%=title%></title>
+   <link rel="stylesheet" href="/css/Form.css">
+   <%- style %>
+    </head>
+    <body>
+        <%-include('_header'); %>
+        <%-body%>
+        <%-include('_footer'); %>      
+        <%- script %>
+    </body>
+    </html>
