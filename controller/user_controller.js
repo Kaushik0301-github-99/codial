@@ -3,13 +3,19 @@
 const User = require('../models/user');
 
 module.exports.profile = function(req,res){
-    return res.end('<h1>the profile has been added</h1>');
+    return res.render('user_profile',{
+        title:"Profile Section"
+    })
 }
 
 // controller for the page of sign-up
 module.exports.sign_in = function(req,res){
     console.log(req.cookies);
-    res.cookie('user_id',35);
+    res.cookie('user_id');
+
+    if(req.isAuthenticated()){
+       return res.redirect('/user/profile')
+    }
     return res.render('signIn',{
         title:"sign-in"
     })
@@ -17,6 +23,10 @@ module.exports.sign_in = function(req,res){
 
 // controller for the page of sign-up
 module.exports.sign_up = function(req,res){
+     if(req.isAuthenticated()){
+        return res.redirect('/user/profile');
+     }
+
     return res.render('signUp',{
         title:"sign-up"
     })
@@ -49,5 +59,15 @@ module.exports.create = function(req,res){
 
 // to sign-in and create the session 
 module.exports.createSession = function(req,res){
+  return res.redirect('/');
+}
 
+// creating a method for signout
+module.exports.distroySession = (req, res) => {
+    req.logOut(function(err){
+        if(err){
+            return err;
+        }
+        return res.redirect('/');
+    });
 }
