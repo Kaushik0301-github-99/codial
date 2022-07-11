@@ -9,8 +9,6 @@ router.get('/sign-up',userController.sign_up);
 
 
 router.post('/create',userController.create);
-router.post('/create-session',passport.authenticate('local',{failureRedirect:'/user/sign-in'},),
+router.post('/create-session',passport.authenticate('local',{failureRedirect:'/user/sign-in'},),userController.createSession);
 router.get('/sign-out',userController.distroySession)
-     
-,userController.createSession);
 module.exports = router;

@@ -10,12 +10,10 @@ module.exports.profile = function(req,res){
 
 // controller for the page of sign-up
 module.exports.sign_in = function(req,res){
-    console.log(req.cookies);
-    res.cookie('user_id');
 
     if(req.isAuthenticated()){
-       return res.redirect('/user/profile')
-    }
+        return res.redirect('/user/profile')
+     }
     return res.render('signIn',{
         title:"sign-in"
     })

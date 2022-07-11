@@ -65,8 +65,8 @@ app.set('layout extractScripts',true);
 
    app.use(passPort.initialize());
    app.use(passPort.session());
-   // to use the express routers here 
    app.use(passPort.setAuthenticatedUser)
+   // to use the express routers here 
    app.use('/',require('./routes'));
    
 

@@ -51,8 +51,8 @@ passPort.deserializeUser(function(id,done){
   if(req.isAuthenticated()){
     // req.user contains the cureent signed in user from the session cookies and we are just sending this to the local for the views
     res.locals.user = req.user;
-    return next();
   }
+  next();
  }
 
 
