@@ -1,0 +1,15 @@
+<li>
+    <p style="color: black;">
+        <%if(locals.user && (locals.user.id == post.user.id)){%>
+
+            <small>
+                <a href="comments/destroy/<%=comment.id%>">delete</a>
+            </small>
+            <%}%>
+        <%= comment.content%>
+        <br>
+        <small style="color: black;">
+            <%=comment.email%>
+        </small>
+    </p>
+</li>
